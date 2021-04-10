@@ -2,12 +2,12 @@ package com.example.lablyrics.ui.lyrics
 
 import android.content.Context
 import com.example.lablyrics.ui.Presenter
-import com.example.lablyrics.ui.search.WeatherActivity
+import com.example.lablyrics.ui.search.SearchActivity
 
-object LyricsPresenter : Presenter<LyrincsScreen>() {
+object LyricsPresenter : Presenter<LyricsScreen?>() {
 
-    public override fun attachScreen(screen: WeatherActivity) {
-        super.attachScreen(screen)
+   override fun attachScreen(screen: LyricsScreen?) {
+      super.attachScreen(screen)
     }
 
 

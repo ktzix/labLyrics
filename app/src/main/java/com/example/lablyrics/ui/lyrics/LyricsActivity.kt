@@ -5,7 +5,7 @@ import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lablyrics.ui.lyrics.adapter.LyricsAdapter
 
-class LyricsActivity : AppCompatActivity(), LyrincsScreen {
+class LyricsActivity : AppCompatActivity(), LyricsScreen {
 
     lateinit var lyricsAdapter : LyricsAdapter
 

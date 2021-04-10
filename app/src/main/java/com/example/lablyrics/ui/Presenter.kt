@@ -1,11 +1,11 @@
 package com.example.lablyrics.ui
 
-import com.example.lablyrics.ui.search.WeatherActivity
+import com.example.lablyrics.ui.search.SearchActivity
 
 abstract class Presenter<S> {
     protected var screen: S? = null
 
-    open fun attachScreen(screen: WeatherActivity) {
+    open fun attachScreen(screen: S) {
         this.screen = screen
     }
 

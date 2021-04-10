@@ -2,7 +2,7 @@ package com.example.lablyrics.ui.lyrics
 
 //import lyricsModel
 
-interface LyrincsScreen {
+interface LyricsScreen {
 
     fun showLyricsList(lyricsList: List<String/*List<Lyrics>*/>)
 

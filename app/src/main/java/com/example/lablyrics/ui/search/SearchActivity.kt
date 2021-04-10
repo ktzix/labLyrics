@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 
-class WeatherActivity: AppCompatActivity(), SearchScreen {
+class SearchActivity: AppCompatActivity(), SearchScreen {
 
     private lateinit var songName: String
 
