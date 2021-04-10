@@ -30,4 +30,12 @@ class LyricsAdapter(private val context: Context) : RecyclerView.Adapter<LyricsA
         TODO("Not yet implemented")
     }
 
+
+    /*
+
+
+    fun addLyrics(lyrics: Lyrics) {}
+    fun removeLyrics(position: Int) {}
+    fun setLyrics(lyrics: List<Lyrics>) {}
+    */
 }

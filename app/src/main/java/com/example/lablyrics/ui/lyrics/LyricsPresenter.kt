@@ -3,9 +3,9 @@ package com.example.lablyrics.ui.lyrics
 import android.content.Context
 import com.example.lablyrics.ui.Presenter
 
-class LyricsPresenter : Presenter<LyrincsScreen>() {
+object LyricsPresenter : Presenter<LyrincsScreen>() {
 
-    override fun attachScreen(screen: LyrincsScreen) {
+    public override fun attachScreen(screen: LyrincsScreen) {
         super.attachScreen(screen)
     }
 
