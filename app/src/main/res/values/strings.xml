@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">lablyrics</string>
+    <string name="song_name">song name</string>
+    <string name="artist">name of artist or band</string>
 </resources>
