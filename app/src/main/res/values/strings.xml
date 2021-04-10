@@ -2,4 +2,6 @@
     <string name="app_name">lablyrics</string>
     <string name="song_name">song name</string>
     <string name="artist">name of artist or band</string>
+    <string name="search">search</string>
+    <string name="lyrics">lyrics</string>
 </resources>
