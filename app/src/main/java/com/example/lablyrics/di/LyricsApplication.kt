@@ -1,4 +1,4 @@
-package com.example.lablyrics.di
+/*package com.example.lablyrics.di
 
 import android.app.Application
 
@@ -10,4 +10,4 @@ class LyricsApplication: Application() {
         super.onCreate()
         //injector = DaggerInfoComponent.builder().lyricsModule().build()
     }
-}
+}*/

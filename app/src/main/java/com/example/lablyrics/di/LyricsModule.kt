@@ -1,4 +1,4 @@
-package com.example.lablyrics.di
+/*package com.example.lablyrics.di
 
 class LyricsModule {
-}
+}*/
