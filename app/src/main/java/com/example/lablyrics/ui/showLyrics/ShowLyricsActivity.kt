@@ -1,4 +1,4 @@
-package com.example.lablyrics.ui.lyrics
+package com.example.lablyrics.ui.showLyrics
 
 import android.os.Bundle
 import android.os.PersistableBundle
