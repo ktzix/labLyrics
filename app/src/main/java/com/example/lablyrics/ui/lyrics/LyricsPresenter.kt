@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.lablyrics.ui.Presenter
 import com.example.lablyrics.ui.search.SearchActivity
 
-object LyricsPresenter : Presenter<LyricsScreen?>() {
+class LyricsPresenter : Presenter<LyricsScreen?>() {
 
    override fun attachScreen(screen: LyricsScreen?) {
       super.attachScreen(screen)
@@ -15,7 +15,7 @@ object LyricsPresenter : Presenter<LyricsScreen?>() {
         super.detachScreen()
     }
 
-    fun queryLyrics(context: Context){
+    fun getLyrics(context: Context){
         TODO()
         /*
         *

@@ -3,9 +3,13 @@ package com.example.lablyrics.ui.search
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lablyrics.model.Lyrics
+import javax.inject.Inject
 
 class SearchActivity: AppCompatActivity(), SearchScreen {
 
+    @Inject
+    lateinit var searchPresenter: SearchPresenter
     private lateinit var songName: String
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
@@ -14,25 +18,25 @@ class SearchActivity: AppCompatActivity(), SearchScreen {
 
     override fun onStart() {
         super.onStart()
-        SearchPresenter.attachScreen(this)
+        searchPresenter.attachScreen(this)
     }
 
     override fun onStop() {
-        SearchPresenter.detachScreen()
+        searchPresenter.detachScreen()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        SearchPresenter.queryLyrics(songName)
+        searchPresenter.getLyrics(songName)
     }
 
-    override fun showSearch(searchResult: String) {
+    override fun showSearch(lyrics: Lyrics) {
         TODO("Not yet implemented")
     }
 
-    override fun showError(errorMsg: String) {
-        TODO("Not yet implemented")
+    override fun showError(errorMsg: Throwable) {
+        errorMsg.printStackTrace()
     }
 
 

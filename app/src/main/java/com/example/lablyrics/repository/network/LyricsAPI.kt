@@ -29,7 +29,7 @@ interface LyricsAPI {
      * @return Call<Lyrics>
     </Void> */
     @PUT("{artist}/{title}")
-    fun putPlayersId(@Path("artist") artist: String, @Path("title") title: String, @Body param: Lyrics)
+    fun putLyrics(@Path("artist") artist: String, @Path("title") title: String, @Body param: Lyrics)
     : Call<Lyrics>
 
 
@@ -39,7 +39,7 @@ interface LyricsAPI {
      * @return Call<Void>
     </Void> */
     @POST("{artist}/{title}")
-    fun postPlayersId( @Body param: Lyrics): Call<Int>
+    fun postLyrics(@Path("artist") artist: String, @Path("title") title: String, @Body param: Lyrics): Call<Int>
 
     /**
      *

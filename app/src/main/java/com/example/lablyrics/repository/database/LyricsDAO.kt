@@ -18,8 +18,8 @@ interface LyricsDAO {
     fun getLyricsByPerformerAndTitle(Artist: String, Title: String): Lyrics
 
     @Insert
-    fun insertAll(vararg lyrics: Lyrics)
+    fun insertLyrics(vararg lyrics: Lyrics)
 
     @Delete
-    fun delete(lyrics: Lyrics)
+    fun deleteLyrics(lyrics: Lyrics)
 }
