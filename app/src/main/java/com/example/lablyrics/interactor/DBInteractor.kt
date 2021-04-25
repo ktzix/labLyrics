@@ -1,4 +1,4 @@
 package com.example.lablyrics.interactor
 
-class Interactor {
+class DBInteractor {
 }

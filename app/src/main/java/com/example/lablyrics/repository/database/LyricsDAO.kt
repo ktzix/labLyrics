@@ -1,4 +1,4 @@
-package com.example.lablyrics.repository.network
+package com.example.lablyrics.repository.database
 
 import androidx.room.Dao
 import androidx.room.Delete
