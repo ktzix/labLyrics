@@ -1,0 +1,87 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "lab",
+    "version": "1.0",
+    "description": "lyrics api"
+  },
+  "servers": [
+    {
+      "url": "https://api.lyrics.ovh/v1"
+    }
+  ],
+  "paths": {
+    "/artist/title": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lyrics"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "lyrics": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-lyrics",
+        "description": "gets given songlyrics from given artist"
+      },
+      "post": {
+        "summary": "",
+        "operationId": "post-artist-title",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "summary": "",
+        "operationId": "put-artist-title",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "summary": "",
+        "operationId": "delete-artist-title",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Lyrics": {
+        "title": "Lyrics",
+        "type": "object",
+        "description": "",
+        "x-examples": {},
+        "properties": {
+          "lyrics": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lyrics"
+        ]
+      }
+    }
+  }
+}
