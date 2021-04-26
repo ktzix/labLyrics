@@ -3,6 +3,7 @@ package com.example.lablyrics.ui.lyrics
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lablyrics.R
 import com.example.lablyrics.ui.lyrics.adapter.LyricsAdapter
 import javax.inject.Inject
 
@@ -14,6 +15,7 @@ class LyricsActivity : AppCompatActivity(), LyricsScreen {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
+        setContentView(R.layout.activity_lyrics)
     }
 
     override fun onStart() {

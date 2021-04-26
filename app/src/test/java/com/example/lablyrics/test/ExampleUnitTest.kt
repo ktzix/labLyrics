@@ -1,5 +1,6 @@
-package com.example.lablyrics
+package com.example.lablyrics.test
 
+import org.junit.Assert
 import org.junit.Test
 
 import org.junit.Assert.*

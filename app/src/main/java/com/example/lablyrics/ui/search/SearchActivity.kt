@@ -10,7 +10,7 @@ class SearchActivity: AppCompatActivity(), SearchScreen {
 
     @Inject
     lateinit var searchPresenter: SearchPresenter
-    private lateinit var songName: String
+    private lateinit var title: String
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -28,7 +28,7 @@ class SearchActivity: AppCompatActivity(), SearchScreen {
 
     override fun onResume() {
         super.onResume()
-        searchPresenter.getLyrics(songName)
+        searchPresenter.getLyrics(title)
     }
 
     override fun showSearch(lyrics: Lyrics) {
