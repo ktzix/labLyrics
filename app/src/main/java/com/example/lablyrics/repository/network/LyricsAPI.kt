@@ -1,6 +1,7 @@
 package com.example.lablyrics.repository.network
 
 import com.example.lablyrics.model.Lyrics
+import com.example.lablyrics.model.LyricsResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -10,6 +11,7 @@ interface LyricsAPI {
         const val ENDPOINT_URL="https://api.lyrics.ovh/v1/"
     }
 
+    //https://api.lyrics.ovh/v1/Coldplay/Adventure of a Lifetime
     /**
      *
      * Returns a lyrics of given song from given artist.
@@ -17,8 +19,9 @@ interface LyricsAPI {
      * @param title name of song
      * @return Call<Lyrics>
     </Void> */
-    @GET("{artist}/{title}")
-    fun getLyrics(@Path("artist") artist: String, @Path("title") title: String): Call<Lyrics>
+   @GET("{artist}/{title}")
+    fun getLyrics(@Path("artist") artist: String, @Path("title") title: String): Call<LyricsResponse>
+
 
 
     /**

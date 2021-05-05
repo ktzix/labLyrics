@@ -1,7 +1,9 @@
 package com.example.lablyrics.interactor
 
 import android.os.Handler
+import android.util.Log
 import com.example.lablyrics.model.Lyrics
+import com.example.lablyrics.model.LyricsResponse
 import com.example.lablyrics.repository.network.LyricsAPI
 import retrofit2.Call
 import javax.inject.Inject
@@ -16,7 +18,9 @@ class NetworkInteractor @Inject constructor(private var lyricsapi: LyricsAPI){
         val handler = Handler()
         Thread {
             try {
-                val response = call.execute().body()!!
+                val c = call.execute()
+                Log.d("code", c.code().toString())
+                val response = c.body()!!
                 handler.post {
                     onSuccess(response)
                 }
@@ -28,8 +32,11 @@ class NetworkInteractor @Inject constructor(private var lyricsapi: LyricsAPI){
         }.start()
     }
 
-    fun getLyrics(artist : String, title: String, onSuccess:(Lyrics)->Unit, onError: (Throwable) -> Unit) {
+    fun getLyrics(artist : String, title: String, onSuccess:(LyricsResponse)->Unit, onError: (Throwable) -> Unit) {
+
         val rek = lyricsapi.getLyrics(artist, title)
+
+        runCallOnBackgroundThread(rek, onSuccess, onError)
     }
 
     fun createLyrics(artist : String, title: String, lyrics: Lyrics, onSuccess:(Lyrics)->Unit, onError: (Throwable) -> Unit) {

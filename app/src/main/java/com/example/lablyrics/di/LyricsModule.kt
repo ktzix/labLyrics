@@ -38,22 +38,22 @@ class LyricsModule(private var context: Context) {
 
     @Provides
     @Singleton
-    fun providesDBInteractor(lyricsDAO: LyricsDAO) = DBInteractor(lyricsDAO)
+    fun providesDBInteractor(lyricsDAO: LyricsDAO):DBInteractor = DBInteractor(lyricsDAO)
 
     @Provides
     @Singleton
-    fun providesNetworkInteractor(lyricsAPI: LyricsAPI) = NetworkInteractor(lyricsAPI)
+    fun providesNetworkInteractor(lyricsAPI: LyricsAPI):NetworkInteractor = NetworkInteractor(lyricsAPI)
 
     @Provides
     @Singleton
-    fun providesLyricsPresenter() = LyricsPresenter()
+    fun providesLyricsPresenter():LyricsPresenter = LyricsPresenter()
 
     @Provides
     @Singleton
-    fun providesShowLyricsPresenter() = ShowLyricsPresenter()
+    fun providesShowLyricsPresenter():ShowLyricsPresenter = ShowLyricsPresenter()
 
     @Provides
     @Singleton
-    fun providesSearchPresenter(networkInteractor: NetworkInteractor) = SearchPresenter(networkInteractor)
+    fun providesSearchPresenter(networkInteractor: NetworkInteractor):SearchPresenter = SearchPresenter(networkInteractor)
 
 }
