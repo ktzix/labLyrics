@@ -1,5 +1,6 @@
 package com.example.lablyrics.ui.lyrics
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -71,4 +72,6 @@ class LyricsActivity : AppCompatActivity(), LyricsScreen {
     fun delLyrics(lyrics: Lyrics){
         lyricsPresenter.delLyrics(lyrics)
     }
+
+
 }
