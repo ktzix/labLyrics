@@ -2,6 +2,7 @@ package com.example.lablyrics.ui.showLyrics
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lablyrics.R
 import com.example.lablyrics.databinding.ActivitySearchBinding
@@ -18,17 +19,23 @@ class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
 
     lateinit var binding: ActivityShowlyricsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityShowlyricsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         (applicationContext as LyricsApplication).injector.inject(this)
 
         val lyrics = intent.getParcelableExtra<Lyrics>("EXTRA_LYRICS")
 
-        binding.tvA.text = lyrics?.artist
-        binding.tvT.text = lyrics?.title
+        binding.tvA.setText(lyrics?.artist)
+        binding.tvT.setText(lyrics?.title)
         binding.tvL.text = lyrics?.text
+
+        binding.btnUpdate.setOnClickListener {
+            if (lyrics != null) {
+                showLyricsPresenter.updateLyrics(lyrics)
+            }
+        }
 
     }
 
@@ -44,12 +51,18 @@ class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
     }
 
 
-    override fun showSearch(lyrics: LyricsResponse) {
-        TODO("Not yet implemented")
-    }
 
     override fun showError(errorMsg: Throwable) {
-        TODO("Not yet implemented")
+        errorMsg.printStackTrace()
+    }
+
+    override fun showUpdateSucces(song: String) {
+        this@ShowLyricsActivity.runOnUiThread{ Toast.makeText(
+            applicationContext,
+            "$song Modositva",
+            Toast.LENGTH_SHORT
+        ).show()
+        }
     }
 
 

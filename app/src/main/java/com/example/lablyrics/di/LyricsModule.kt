@@ -50,7 +50,7 @@ class LyricsModule(private var context: Context) {
 
     @Provides
     @Singleton
-    fun providesShowLyricsPresenter():ShowLyricsPresenter = ShowLyricsPresenter()
+    fun providesShowLyricsPresenter(networkInteractor: NetworkInteractor , dbInteractor: DBInteractor):ShowLyricsPresenter = ShowLyricsPresenter(networkInteractor, dbInteractor)
 
     @Provides
     @Singleton
