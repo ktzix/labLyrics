@@ -13,6 +13,7 @@ class DBInteractor @Inject constructor(private var lyricsDAO: LyricsDAO) {
 
     fun getLyricsByArtistAndTitle(artist: String, title: String) = lyricsDAO.getLyricsByPerformerAndTitle(artist, title)
 
+
     fun insertLyrics(lyrics: Lyrics) { lyricsDAO.insertLyrics(lyrics) }
 
     fun deleteLyrics(lyrics: Lyrics) { lyricsDAO.deleteLyrics(lyrics) }

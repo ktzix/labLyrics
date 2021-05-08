@@ -1,9 +1,11 @@
 package com.example.lablyrics.ui.lyrics
 
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lablyrics.R
+import com.example.lablyrics.databinding.ActivityLyricsBinding
+import com.example.lablyrics.di.LyricsApplication
+import com.example.lablyrics.model.Lyrics
 import com.example.lablyrics.ui.lyrics.adapter.LyricsAdapter
 import javax.inject.Inject
 
@@ -11,16 +13,24 @@ class LyricsActivity : AppCompatActivity(), LyricsScreen {
 
     @Inject
     lateinit var lyricsPresenter: LyricsPresenter
+
     lateinit var lyricsAdapter : LyricsAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.activity_lyrics)
+    private lateinit var binding : ActivityLyricsBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityLyricsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        (applicationContext as LyricsApplication).injector.inject(this)
+        lyricsPresenter.getLyrics()
+
     }
 
     override fun onStart() {
         super.onStart()
         lyricsPresenter.attachScreen(this)
+        initRecyclerView()
     }
 
     override fun onStop() {
@@ -31,16 +41,34 @@ class LyricsActivity : AppCompatActivity(), LyricsScreen {
     override fun onResume() {
         super.onResume()
         initRecyclerView()
-        lyricsPresenter.getLyrics(this)
     }
 
     private fun initRecyclerView() {
         lyricsAdapter = LyricsAdapter(this)
+        binding.listSongs.adapter = lyricsAdapter
+    }
+
+    override fun showLyricsList(lyricsList: List<Lyrics>) {
+        this@LyricsActivity.runOnUiThread{
+
+            lyricsAdapter.setLyrics(lyricsList)
+        }
 
     }
 
-    override fun showLyricsList(lyricsList: List<String>) {
-        TODO("Not yet implemented")
-        //lyricsAdapter.setLyrics(lyricsList)
+    override fun showDeleteSucces(song: String) {
+        Toast.makeText(
+            applicationContext,
+            "$song torolve",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    override fun showError(errorMsg: Throwable) {
+        errorMsg.printStackTrace()
+    }
+
+    fun delLyrics(lyrics: Lyrics){
+        lyricsPresenter.delLyrics(lyrics)
     }
 }

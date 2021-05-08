@@ -39,16 +39,17 @@ class NetworkInteractor @Inject constructor(private var lyricsapi: LyricsAPI){
         runCallOnBackgroundThread(rek, onSuccess, onError)
     }
 
-    fun createLyrics(artist : String, title: String, lyrics: Lyrics, onSuccess:(Lyrics)->Unit, onError: (Throwable) -> Unit) {
-        val rek = lyricsapi.postLyrics(artist, title, lyrics)
+    fun createLyrics(lyrics: Lyrics, onSuccess:(Lyrics)->Unit, onError: (Throwable) -> Unit) {
+       onSuccess(lyrics)
     }
 
-    fun delLyrics(artist : String, title: String, onSuccess:(Lyrics)->Unit, onError: (Throwable) -> Unit) {
-        val rek = lyricsapi.deleteLyrics(artist, title)
+    fun delLyrics(artist : String, title: String, onSuccess:(String)->Unit, onError: (Throwable) -> Unit) {
+        onSuccess("$artist - $title")
     }
 
-    fun changeLyrics(artist : String, title: String, lyrics: Lyrics, onSuccess:(Lyrics)->Unit, onError: (Throwable) -> Unit) {
-        val rek = lyricsapi.putLyrics(artist, title, lyrics)
+    fun changeLyrics(lyrics: Lyrics,
+                     onSuccess:(String)->Unit, onError: (Throwable) -> Unit) {
+        onSuccess("${lyrics.artist} - ${lyrics.title}")
     }
 
 

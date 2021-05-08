@@ -7,4 +7,5 @@ interface SearchScreen {
 
     fun showSearch(lyrics: LyricsResponse/*Result*/)
     fun showError(errorMsg: Throwable)
+    fun showAddSucces(lyrics: Lyrics)
 }

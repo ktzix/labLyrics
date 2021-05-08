@@ -1,4 +1,9 @@
 package com.example.lablyrics.ui.showLyrics
 
-class ShowLyricsPresenter {
+import com.example.lablyrics.ui.Presenter
+
+
+class ShowLyricsPresenter: Presenter<ShowLyricsScreen?>() {
+
+
 }

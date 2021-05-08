@@ -4,4 +4,10 @@
     <string name="artist">name of artist or band</string>
     <string name="search">search</string>
     <string name="lyrics">lyrics</string>
+    <string name="placeholder_itt">ITT VAGYOK ############</string>
+    <string name="keress">Keress</string>
+    <string name="kedvencem">Kedvencem</string>
+    <string name="kedvencek">Kedvencek</string>
+    <string name="torles">Torles</string>
+    <string name="ures">ures</string>
 </resources>

@@ -46,7 +46,7 @@ class LyricsModule(private var context: Context) {
 
     @Provides
     @Singleton
-    fun providesLyricsPresenter():LyricsPresenter = LyricsPresenter()
+    fun providesLyricsPresenter(networkInteractor: NetworkInteractor , dbInteractor: DBInteractor):LyricsPresenter = LyricsPresenter(networkInteractor, dbInteractor)
 
     @Provides
     @Singleton
@@ -54,6 +54,6 @@ class LyricsModule(private var context: Context) {
 
     @Provides
     @Singleton
-    fun providesSearchPresenter(networkInteractor: NetworkInteractor):SearchPresenter = SearchPresenter(networkInteractor)
+    fun providesSearchPresenter(networkInteractor: NetworkInteractor, dbInteractor: DBInteractor):SearchPresenter = SearchPresenter(networkInteractor, dbInteractor)
 
 }

@@ -1,9 +1,6 @@
 package com.example.lablyrics.repository.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.lablyrics.model.Lyrics
 
 @Dao
@@ -17,7 +14,7 @@ interface LyricsDAO {
     @Query("SELECT * FROM lyrics WHERE artist = :Artist and title = :Title")
     fun getLyricsByPerformerAndTitle(Artist: String, Title: String): Lyrics
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertLyrics( lyrics: Lyrics)
 
     @Delete
