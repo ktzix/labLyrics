@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorAccent"
         >
 
         <TextView
@@ -31,6 +32,7 @@
 
         <Button
             android:id="@+id/btnDelete"
+            android:background="@android:color/holo_red_dark"
             android:text="@string/torles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

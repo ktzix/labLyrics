@@ -47,9 +47,9 @@ class NetworkInteractor @Inject constructor(private var lyricsapi: LyricsAPI){
         onSuccess("$artist - $title")
     }
 
-    fun changeLyrics(lyrics: Lyrics,
+    fun changeLyrics(id: Int,
                      onSuccess:(String)->Unit, onError: (Throwable) -> Unit) {
-        onSuccess("${lyrics.artist} - ${lyrics.title}")
+        onSuccess("$id modositva")
     }
 
 

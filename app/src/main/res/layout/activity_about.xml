@@ -9,16 +9,21 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="407dp"
-        android:layout_height="315dp"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="300dp"/>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="184dp"
-        android:layout_height="83dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="324dp" />
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_height="match_parent"
+        android:text="@string/lablyrics"
+        android:textSize="10pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

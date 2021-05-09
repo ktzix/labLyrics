@@ -21,7 +21,6 @@ class LyricsPresenter @Inject constructor(private val networkInteractor: Network
     fun getLyrics() {
         Thread{
             var lyricsList = dbInteractor.getAllLyrics()
-
             onGetLyricsSucces(lyricsList)
         }.start()
     }

@@ -8,6 +8,6 @@ interface ShowLyricsScreen {
 
     fun showError(errorMsg: Throwable)
     fun showUpdateSucces(song: String)
-
+    fun showGetLyricsByIdSucces(lyrics: Lyrics)
 
 }

@@ -24,14 +24,14 @@ class LyricsActivity : AppCompatActivity(), LyricsScreen {
         binding = ActivityLyricsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         (applicationContext as LyricsApplication).injector.inject(this)
-        lyricsPresenter.getLyrics()
+        initRecyclerView()
 
     }
 
     override fun onStart() {
         super.onStart()
         lyricsPresenter.attachScreen(this)
-        initRecyclerView()
+
     }
 
     override fun onStop() {
@@ -47,11 +47,11 @@ class LyricsActivity : AppCompatActivity(), LyricsScreen {
     private fun initRecyclerView() {
         lyricsAdapter = LyricsAdapter(this)
         binding.listSongs.adapter = lyricsAdapter
+        lyricsPresenter.getLyrics()
     }
 
     override fun showLyricsList(lyricsList: List<Lyrics>) {
         this@LyricsActivity.runOnUiThread{
-
             lyricsAdapter.setLyrics(lyricsList)
         }
 

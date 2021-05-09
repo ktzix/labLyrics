@@ -2,6 +2,8 @@ package com.example.lablyrics.ui.showLyrics
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lablyrics.R
@@ -24,19 +26,18 @@ class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
         binding = ActivityShowlyricsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         (applicationContext as LyricsApplication).injector.inject(this)
+        binding.tvT.movementMethod = ScrollingMovementMethod()
 
-        val lyrics = intent.getParcelableExtra<Lyrics>("EXTRA_LYRICS")
+        val curId = intent.getIntExtra("EXTRA_ID", 0)
 
-        binding.tvA.setText(lyrics?.artist)
-        binding.tvT.setText(lyrics?.title)
-        binding.tvL.text = lyrics?.text
+        showLyricsPresenter.getLyricsById(curId)
+
 
         binding.btnUpdate.setOnClickListener {
-            if (lyrics != null) {
-                showLyricsPresenter.updateLyrics(lyrics)
-            }
-        }
 
+                    showLyricsPresenter.updateLyrics(curId , binding.tvA.text.toString(), binding.tvT.text.toString())
+
+        }
     }
 
     override fun onStart() {
@@ -63,6 +64,12 @@ class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
             Toast.LENGTH_SHORT
         ).show()
         }
+    }
+
+    override fun showGetLyricsByIdSucces(lyrics: Lyrics) {
+        binding.tvA.setText(lyrics.artist)
+        binding.tvT.setText(lyrics.title)
+        binding.tvL.text = lyrics.text
     }
 
 

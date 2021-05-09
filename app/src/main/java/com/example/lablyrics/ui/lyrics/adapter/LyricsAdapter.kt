@@ -1,6 +1,7 @@
 package com.example.lablyrics.ui.lyrics.adapter
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,8 +23,6 @@ class LyricsAdapter(private var activity: LyricsActivity): RecyclerView.Adapter<
 
     }
 
-
-
     val lyricsList = mutableListOf<Lyrics>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -37,7 +36,8 @@ class LyricsAdapter(private var activity: LyricsActivity): RecyclerView.Adapter<
 
         holder.tvSong.setOnClickListener {
             val intent = Intent(activity, ShowLyricsActivity::class.java)
-            intent.putExtra("EXTRA_LYRICS", lyricsList[position])
+            intent.putExtra("EXTRA_ID", lyricsList[position].id)
+            Log.d("INTENT ERTEK ID",lyricsList[position].id.toString())
             activity.startActivity(intent)
         }
     }
@@ -52,10 +52,9 @@ class LyricsAdapter(private var activity: LyricsActivity): RecyclerView.Adapter<
     }
 
     fun removeLyrics(position: Int) {
-
+        activity.delLyrics(lyricsList[position])
         lyricsList.removeAt(position)
         notifyItemRemoved(position)
-        activity.delLyrics(lyricsList[position])
 
     }
     fun setLyrics(lyrics: List<Lyrics>) {
