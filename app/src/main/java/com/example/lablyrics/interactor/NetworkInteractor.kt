@@ -15,21 +15,21 @@ class NetworkInteractor @Inject constructor(private var lyricsapi: LyricsAPI){
             onSuccess: (T) -> Unit,
             onError: (Throwable) -> Unit
     ) {
-        val handler = Handler()
-        Thread {
+
+
             try {
                 val c = call.execute()
                 Log.d("code", c.code().toString())
                 val response = c.body()!!
-                handler.post {
+
                     onSuccess(response)
-                }
+
 
             } catch (e: Exception) {
                 e.printStackTrace()
-                handler.post { onError(e) }
+                onError(e)
             }
-        }.start()
+
     }
 
     fun getLyrics(artist : String, title: String, onSuccess:(LyricsResponse)->Unit, onError: (Throwable) -> Unit) {

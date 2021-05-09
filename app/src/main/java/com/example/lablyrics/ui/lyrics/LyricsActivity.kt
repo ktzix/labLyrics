@@ -50,14 +50,14 @@ class LyricsActivity : AppCompatActivity(), LyricsScreen {
         lyricsPresenter.getLyrics()
     }
 
-    override fun showLyricsList(lyricsList: List<Lyrics>) {
+    override fun showLyricsList(lyricsList: List<Lyrics>?) {
         this@LyricsActivity.runOnUiThread{
-            lyricsAdapter.setLyrics(lyricsList)
+            lyricsAdapter.setLyrics(lyricsList!!)
         }
 
     }
 
-    override fun showDeleteSucces(song: String) {
+    override fun showDeleteSucces(song: String?) {
         Toast.makeText(
             applicationContext,
             "$song torolve",

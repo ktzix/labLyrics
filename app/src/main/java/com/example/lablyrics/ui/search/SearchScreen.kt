@@ -5,7 +5,7 @@ import com.example.lablyrics.model.LyricsResponse
 
 interface SearchScreen {
 
-    fun showSearch(lyrics: LyricsResponse/*Result*/)
+    fun showSearch(lyrics: LyricsResponse?/*Result*/)
     fun showError(errorMsg: Throwable)
-    fun showAddSucces(lyrics: Lyrics)
+    fun showAddSucces(lyrics: Lyrics?)
 }

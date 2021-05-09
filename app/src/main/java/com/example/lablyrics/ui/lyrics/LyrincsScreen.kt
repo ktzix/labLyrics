@@ -6,7 +6,7 @@ import com.example.lablyrics.model.Lyrics
 
 interface LyricsScreen {
 
-    fun showLyricsList(lyricsList: List<Lyrics/*List<Lyrics>*/>)
-    fun showDeleteSucces(song : String)
+    fun showLyricsList(lyricsList: List<Lyrics>?)
+    fun showDeleteSucces(song : String?)
     fun showError(errorMsg: Throwable)
 }

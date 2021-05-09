@@ -77,8 +77,8 @@ class SearchActivity: AppCompatActivity(), SearchScreen {
     }
 
 
-    override fun showSearch(lyrics: LyricsResponse) {
-        binding.tvResult.text = lyrics.lyrics
+    override fun showSearch(lyrics: LyricsResponse?) {
+        binding.tvResult.text = lyrics!!.lyrics
     }
 
     override fun showError(errorMsg: Throwable) {
@@ -86,10 +86,10 @@ class SearchActivity: AppCompatActivity(), SearchScreen {
         binding.tvResult.text = "hiba lettem"
     }
 
-    override fun showAddSucces(lyrics: Lyrics) {
+    override fun showAddSucces(lyrics: Lyrics?) {
         this@SearchActivity.runOnUiThread{ Toast.makeText(
             applicationContext,
-            "${lyrics.artist}-${lyrics.title} hozzaadva a kedvencekhez",
+            "${lyrics?.artist}-${lyrics?.title} hozzaadva a kedvencekhez",
             Toast.LENGTH_SHORT
         ).show()
     }}

@@ -52,6 +52,6 @@ interface LyricsAPI {
      * @return Call<Void>
     </Void> */
     @DELETE("{artist}/{title}")
-    fun deleteLyrics(@Path("artist") artist: String, @Path("title") title: String): Call<Void>
+    fun deleteLyrics(@Path("artist") artist: String, @Path("title") title: String): Call<String>
 
 }

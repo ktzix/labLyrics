@@ -9,15 +9,6 @@ import javax.inject.Inject
 class LyricsPresenter @Inject constructor(private val networkInteractor: NetworkInteractor,
                                           private val dbInteractor: DBInteractor) : Presenter<LyricsScreen?>() {
 
-   override fun attachScreen(screen: LyricsScreen?) {
-      super.attachScreen(screen)
-    }
-
-
-    override fun detachScreen() {
-        super.detachScreen()
-    }
-
     fun getLyrics() {
         Thread{
             var lyricsList = dbInteractor.getAllLyrics()

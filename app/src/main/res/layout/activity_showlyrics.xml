@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/tvA"
+        android:id="@+id/tvArtist"
         android:layout_width="405dp"
         android:layout_height="51dp"
         android:layout_marginTop="4dp"
@@ -16,16 +16,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tvT"
+        android:id="@+id/tvTitle"
         android:layout_width="409dp"
         android:layout_height="39dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvA" />
+        app:layout_constraintTop_toBottomOf="@+id/tvArtist" />
 
     <TextView
-        android:id="@+id/tvL"
+        android:id="@+id/tvLyrics"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scrollbars="vertical"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvT" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <Button
         android:id="@+id/btnUpdate"

@@ -12,7 +12,9 @@ import com.example.lablyrics.databinding.ActivityShowlyricsBinding
 import com.example.lablyrics.di.LyricsApplication
 import com.example.lablyrics.model.Lyrics
 import com.example.lablyrics.model.LyricsResponse
+import java.util.*
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
 class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
 
@@ -20,29 +22,32 @@ class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
     lateinit var showLyricsPresenter: ShowLyricsPresenter
 
     lateinit var binding: ActivityShowlyricsBinding
+     var curId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityShowlyricsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         (applicationContext as LyricsApplication).injector.inject(this)
-        binding.tvT.movementMethod = ScrollingMovementMethod()
 
-        val curId = intent.getIntExtra("EXTRA_ID", 0)
+        binding.tvLyrics.movementMethod =  ScrollingMovementMethod()
 
-        showLyricsPresenter.getLyricsById(curId)
+        curId = intent.getIntExtra("EXTRA_ID", 0)
+        Log.d("KAPOTT ERTEK ID", curId.toString())
 
+
+
+        Thread{showLyricsPresenter.getLyricsById(curId) }.start()
 
         binding.btnUpdate.setOnClickListener {
-
-                    showLyricsPresenter.updateLyrics(curId , binding.tvA.text.toString(), binding.tvT.text.toString())
-
+                    showLyricsPresenter.updateLyrics(curId , binding.tvArtist.text.toString(), binding.tvTitle.text.toString())
         }
     }
 
     override fun onStart() {
         super.onStart()
         showLyricsPresenter.attachScreen(this)
+        showLyricsPresenter.getLyricsById(curId)
 
     }
 
@@ -57,7 +62,7 @@ class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
         errorMsg.printStackTrace()
     }
 
-    override fun showUpdateSucces(song: String) {
+    override fun showUpdateSucces(song: String?) {
         this@ShowLyricsActivity.runOnUiThread{ Toast.makeText(
             applicationContext,
             "$song Modositva",
@@ -66,11 +71,11 @@ class ShowLyricsActivity: AppCompatActivity(), ShowLyricsScreen{
         }
     }
 
-    override fun showGetLyricsByIdSucces(lyrics: Lyrics) {
-        binding.tvA.setText(lyrics.artist)
-        binding.tvT.setText(lyrics.title)
-        binding.tvL.text = lyrics.text
-    }
+    override fun showGetLyricsByIdSucces(lyrics: Lyrics?) {
+        this@ShowLyricsActivity.runOnUiThread{ binding.tvArtist.setText(lyrics?.artist)
+        binding.tvTitle.setText(lyrics?.title)
+        binding.tvLyrics.text = lyrics?.text
+    }}
 
 
 }

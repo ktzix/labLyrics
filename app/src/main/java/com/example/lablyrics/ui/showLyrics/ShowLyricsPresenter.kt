@@ -24,7 +24,6 @@ class ShowLyricsPresenter @Inject constructor(private val networkInteractor: Net
         networkInteractor.changeLyrics(id, onSuccess = this::onUpdateLyricsSucces, onError = this::OnError)
     }
 
-
     fun getLyricsById(id: Int){
 
         Thread{

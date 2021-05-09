@@ -5,25 +5,28 @@ import com.example.lablyrics.repository.database.LyricsDAO
 
 class MockLyricsDAO: LyricsDAO {
 
+    private var lyrics = Lyrics("Eminem", "Without Me", "Lorem ipsum")
     private var lyricsList = ArrayList<Lyrics>()
 
+    private fun initList(){lyricsList.add(lyrics)}
+
+
     override fun getAllLyrics(): List<Lyrics> {
+        initList()
         return lyricsList
     }
 
     override fun getLyricsById(id: Int): Lyrics {
-        for (l in lyricsList)
-            if (l.id==id)
-                return l
+            return lyrics;
+    }
 
-        return lyricsList[0]
+    override fun updateLyrics(id: Int, Artist: String, Title: String) {
+        lyricsList[id].title=Title
+        lyricsList[id].artist=Artist
     }
 
     override fun getLyricsByPerformerAndTitle(Artist: String, Title: String): Lyrics {
-        for(l in lyricsList)
-            if(l.artist.equals(Artist) && l.title.equals(Title))
-                return l
-        return lyricsList[0]
+            return lyrics
     }
 
     override fun insertLyrics(lyrics: Lyrics) {
@@ -32,6 +35,7 @@ class MockLyricsDAO: LyricsDAO {
     }
 
     override fun deleteLyrics(lyrics: Lyrics) {
+        initList()
         lyricsList.remove(lyrics)
     }
 }

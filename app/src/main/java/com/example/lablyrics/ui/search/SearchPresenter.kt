@@ -13,7 +13,8 @@ class SearchPresenter @Inject constructor(private val networkInteractor: Network
 
 
     fun getLyrics(title: String, artist: String) {
-        networkInteractor.getLyrics(artist, title, onSuccess = this::onGetLyricsSucces, this::OnError )
+
+        Thread{networkInteractor.getLyrics(artist, title, onSuccess = this::onGetLyricsSucces, this::OnError )}.start()
     }
 
      fun addLyricsToDB(lyrics: Lyrics)
@@ -31,7 +32,7 @@ class SearchPresenter @Inject constructor(private val networkInteractor: Network
     }
 
     private fun onGetLyricsSucces(lyrics: LyricsResponse)
-    { screen?.showSearch(lyrics)}
+    { screen?.showSearch(lyrics) }
 
     private fun OnError(e: Throwable){
         screen?.showError(e)
