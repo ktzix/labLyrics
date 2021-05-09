@@ -1,5 +1,6 @@
 package com.example.lablyrics.test
 
+import android.os.Build
 import android.os.Looper
 import android.util.Log
 import com.example.lablyrics.model.Lyrics
@@ -20,11 +21,13 @@ import org.mockito.Mockito.timeout
 import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows.shadowOf
+import org.robolectric.annotation.Config
 import org.robolectric.annotation.LooperMode
 import javax.inject.Inject
 
 
 @RunWith(RobolectricTestRunner::class)
+@Config(sdk = [Build.VERSION_CODES.O_MR1])
 class SearchTest {
 @Inject
 lateinit var searchPresenter: SearchPresenter

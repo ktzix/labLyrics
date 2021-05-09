@@ -1,5 +1,6 @@
 package com.example.lablyrics.test
 
+import android.os.Build
 import com.example.lablyrics.mock.MockLyricsDAO
 import com.example.lablyrics.model.Lyrics
 import com.example.lablyrics.testDI.testInjector
@@ -13,10 +14,13 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mockito.timeout
 import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import javax.inject.Inject
 
+@Config(sdk = [Build.VERSION_CODES.O_MR1])
 @RunWith(RobolectricTestRunner::class)
 class LyricsTest {
     @Inject
@@ -46,7 +50,7 @@ class LyricsTest {
     fun getAllTest(){
         lyricsPresenter.getLyrics()
         val songs = argumentCaptor< List<Lyrics> >()
-        verify(lyricsScreen).showLyricsList(songs.capture())
+        verify(lyricsScreen, timeout(5000)).showLyricsList(songs.capture())
         assert(songs.value.isNotEmpty())
     }
 

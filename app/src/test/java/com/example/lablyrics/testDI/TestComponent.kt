@@ -4,6 +4,7 @@ import com.example.lablyrics.di.LyricsComponent
 import com.example.lablyrics.test.ExampleUnitTest
 import com.example.lablyrics.test.LyricsTest
 import com.example.lablyrics.test.SearchTest
+import com.example.lablyrics.test.ShowLyricsTest
 import dagger.Component
 import javax.inject.Singleton
 
@@ -14,5 +15,6 @@ interface TestComponent: LyricsComponent{
     fun inject(exampleUnitTest: ExampleUnitTest)
     fun inject(searchTest: SearchTest)
     fun inject(lyricsTest: LyricsTest)
+    fun inject(showLyricsTest: ShowLyricsTest)
 
 }

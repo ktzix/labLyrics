@@ -17,10 +17,12 @@ class MockLyricsDAO: LyricsDAO {
     }
 
     override fun getLyricsById(id: Int): Lyrics {
-            return lyrics;
+            initList()
+            return lyricsList[0]
     }
 
     override fun updateLyrics(id: Int, Artist: String, Title: String) {
+        initList()
         lyricsList[id].title=Title
         lyricsList[id].artist=Artist
     }
