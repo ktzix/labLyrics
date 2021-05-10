@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">lablyrics</string>
+    <string name="song_name">song name</string>
+    <string name="artist">name of artist or band</string>
+    <string name="search">search</string>
+    <string name="lyrics">lyrics</string>
+    <string name="placeholder_itt">ITT VAGYOK ############</string>
+    <string name="keress">Keress</string>
+    <string name="kedvencem">Kedvencem</string>
+    <string name="kedvencek">Kedvencek</string>
+    <string name="torles">Torles</string>
+    <string name="ures">ures</string>
+    <string name="modosit">Modosit</string>
+    <string name="lablyrics">Udvozollek, ez a\nlabLyrics\n alkalmazas!\nFolytatashoz koppints\na kepre.  </string>
+</resources>
