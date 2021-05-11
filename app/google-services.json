@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448734617110",
+    "project_id": "lablyrics-38eb6",
+    "storage_bucket": "lablyrics-38eb6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448734617110:android:67e032a09c2ce4fef11f37",
+        "android_client_info": {
+          "package_name": "com.example.lablyrics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448734617110-9j6tpnoiu69bvmeeu3vu08h9a7bj06l6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxaFTZdl-3IzKluDBAZiEJW7OD_E592tU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448734617110-9j6tpnoiu69bvmeeu3vu08h9a7bj06l6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
